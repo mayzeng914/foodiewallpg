@@ -1,0 +1,22 @@
+
+
+
+
+<ul>
+	<% @foodiepictures.each do |p| %>
+	<li>
+		    <%= image_tag p.image.url, width: "150px", class: "img-thumbnail" %> 
+		    <h1><%= link_to p.description, foodiepicture_path(p), class: "btn btn-pink" %></h1>
+		    <% if current_user %>
+		    <h class="btn btn-pink"><%= link_to "Uploaded by " + p.user.name, user_path(p.user_id) %></h>
+		    <br /><br />
+		    <div class="btn-group btn-block">
+			    <%= link_to "Edit", edit_foodiepicture_path(p), class: "btn btn-pink" %>
+			    <%= link_to "Delete", foodiepicture_path(p), method: :delete, data: { confirm: "Are you sure you want to delete #{p.description}?"}, class: "btn btn-pink" %>
+			</div>
+			
+		    <% end %>
+    </li>
+    <% end %>
+
+</ul>

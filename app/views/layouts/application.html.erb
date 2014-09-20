@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<header>
+	<link href='http://fonts.googleapis.com/css?family=Unkempt:700' rel='stylesheet' type='text/css'>
+</header>
+<head>
+  <title>Foodiewall</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="heading">
+		<h1>Foodie Wall</h1>
+
+			<% if current_user %>
+
+				<button class="btn btn-lg btn-pink btn-block">Welcome! 
+					<% if current_user.image %>
+						<img src="<%= current_user.image %>" id="userpic">
+					<% end %>					
+					<%= link_to current_user.name, user_path(current_user.id) %>
+				</button>
+				<%= link_to 'log out', session_path, class: "btn btn-lg btn-pink btn-block", method: :delete %></p>
+
+			<% else %>
+
+				<%= link_to 'log in', 'foodiepictures?form_type=login',
+					class: "btn btn-lg btn-pink btn-block" %>
+
+            <% end %>
+	
+
+
+			<%= link_to 'sign up', '/foodiepictures?form_type=signup',
+				class: "btn btn-lg btn-pink btn-block" %>
+
+			<%= link_to "Homepage", foodiepictures_path, class: "btn btn-lg btn-pink btn-block" %>
+			<%= link_to "Upload new food!", new_foodiepicture_path, class: "btn btn-lg btn-pink btn-block" %>
+
+
+			<% if @form_type == 'signup' %>
+				<%= render 'layouts/signup' %>
+			<% elsif @form_type == 'login' %>
+				<%= render 'layouts/login' %>
+			<% end %>
+
+			<div class="notice"><strong><%= notice %></strong></div>
+
+	
+    </div>
+
+   
+    <%= yield %>
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+// Place all the styles related to the foodiepictures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    background-attachment: fixed;
+ 	background: url('wall.jpg');
+ 	background-repeat: no-repeat;
+ 	background-size: cover;
+
+ }
+
+h3, p, h4 {
+	color: pink;
+}
+
+ul {
+	color: pink;
+	width: 700px;
+	padding-top: 2%;
+ }
+
+ li {
+    padding: 10px;
+	width: 200px;
+	display: inline-block;
+}
+
+.newpic {
+	color: pink;
+	margin-top: 12%;
+	margin-left: 13%;
+}
+
+h1 {
+	font-family: 'Unkempt', cursive;
+    color: pink;
+    text-shadow: 1px 1px 1px black;
+}
+
+.singlepic {
+	margin-top: 9%;
+	margin-left: 9%;
+	width: 500px;
+}
+
+.btn-pink {
+	background-color: pink;
+	color: white;
+	opacity: 0.9;
+	&:hover {
+		background-color: lightpink;
+	}
+}
+
+#userpic {
+	width: 16px;
+}
+
+.container{
+    margin-top:20px;
+}
+.image-preview-input {
+    position: relative;
+	overflow: hidden;
+	margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+

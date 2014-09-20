@@ -1,0 +1,29 @@
+<div class="newpic">
+<h1>What did you eat today?</h1>
+<%= form_for @foodiepicture do |f| %>
+  <form class="form-horizontal" role="form">
+	  <div class="form-group btn-pink">
+	    <div class="col-sm-2">
+		  <%= f.file_field :image, placeholder: "new food!", class: "form-control" %>
+        </div>
+	  </div>
+	  <br /><br />
+	  <div class="form-group btn-pink">
+	    <div class="col-sm-2">
+		  <%= f.text_field :description, placeholder: "description", class: "form-control" %>
+	    </div>
+	  </div>
+	  <br /><br />
+		  <div class="form-group">
+		    <div class="col-sm-2">
+			  <%= f.submit "Upload", class: "btn btn-pink" %>
+			</div>
+	      </div>
+	  <br /><br />
+		  <div class="form-group">
+		    <div class="col-sm-2">
+			  <%= link_to "Cancel Upload", foodiepictures_path, class: "btn btn-pink" %>
+			</div>
+	      </div>
+	</form>
+<% end %>

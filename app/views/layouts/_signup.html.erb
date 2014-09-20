@@ -1,0 +1,42 @@
+
+<div>
+<%= form_for @user do |u| %>
+
+	<form class="form-horizontal" role="form">
+	  <div class="form-group btn-pink btn-block">
+	    <div class="col-sm-12">
+	     <%= u.text_field :name, placeholder: "create a username", class: "form-control" %>
+	    </div>
+	  </div>
+	  <br /><br />
+	  <div class="form-group btn-pink btn-block">
+	    <div class="col-sm-12">
+	      <%= u.password_field :password, placeholder: "create a password", class: "form-control" %>
+	    </div>
+	  </div>
+	  <br /><br />
+	  <div class="form-group btn-pink btn-block">
+	    <div class="col-sm-12">
+	      <%= u.password_field :password_confirmation, placeholder: "retype the password", class: "form-control" %>
+	    </div>
+	  </div>
+	  <br /><br />
+	  <div class="form-group btn-pink btn-block">
+	    <div class="col-sm-12">
+	      <%= u.file_field :image %>
+	    </div>
+	  </div>
+	  <br /><br />
+	  <div class="form-group">
+	    <div class="col-sm-12">
+	      <%= u.submit "Creat My Account!", class: "btn btn-pink btn-block" %>
+	    </div>
+	  </div>
+	</form>
+	<% end if !current_user %>
+</div>
+
+
+
+
+
