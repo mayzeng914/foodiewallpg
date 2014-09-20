@@ -1,4 +1,4 @@
 class Comment < ActiveRecord::Base
-  belongs_to :users
-  belongs_to :foodiepictures
+  belongs_to :user
+  belongs_to :foodiepicture
 end

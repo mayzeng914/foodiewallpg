@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140919223648) do
+ActiveRecord::Schema.define(version: 20140920011808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
     t.string   "comment"
-    t.integer  "users_id"
-    t.integer  "foodiepictures_id"
+    t.integer  "user_id"
+    t.integer  "foodiepicture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["foodiepictures_id"], name: "index_comments_on_foodiepictures_id", using: :btree
-  add_index "comments", ["users_id"], name: "index_comments_on_users_id", using: :btree
+  add_index "comments", ["foodiepicture_id"], name: "index_comments_on_foodiepicture_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "foodiepictures", force: true do |t|
     t.string   "description"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20140919223648) do
     t.integer  "comments_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "foodiepictures", ["comments_id"], name: "index_foodiepictures_on_comments_id", using: :btree
@@ -46,6 +50,10 @@ ActiveRecord::Schema.define(version: 20140919223648) do
     t.boolean  "is_active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["comments_id"], name: "index_users_on_comments_id", using: :btree
