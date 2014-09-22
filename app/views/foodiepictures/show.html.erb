@@ -9,11 +9,11 @@
 		<%= link_to "Delete", :foodiepicture, method: :delete, data: { confirm: "Are you sure you want to delete #{@foodiepicture.description}?"}, class: "btn btn-pink" %>
 	</div>
 
-<ul class="commentbox">
+<ul>
 	<% @foodiepicture.comments.each do |c| %>
-		<li>
+		<li class="commentli">
 			<% if current_user %>
-				<%= c.user.name + ':' + c.comment %>
+    			<%= c.user.name + ': ' + c.comment %>
 			<% end %>
 		</li>
 	<% end %>

@@ -4,7 +4,7 @@
 
 <ul>
 	<% @foodiepictures.each do |p| %>
-	<li>
+	<li class="picli">
 		    <%= image_tag p.image.url, width: "150px", class: "img-thumbnail" %> 
 		    <h1><%= link_to p.description, foodiepicture_path(p), class: "btn btn-pink" %></h1>
 		    <% if current_user %>
