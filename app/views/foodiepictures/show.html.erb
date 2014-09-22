@@ -129,7 +129,7 @@
 <div class="commentcontainer">
 <%= form_for @comment_post, {url: comment_path(foodie_id: @id)} do |n| %>
     <%= n.text_field :comment, placeholder: "leave a comment..." %>
-    <%= n.submit "Post comment!" %>
+    <%= n.submit "Post!" %>
 <% end %>
 </div>
 

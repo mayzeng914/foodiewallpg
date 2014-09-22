@@ -15,11 +15,11 @@
 	        </li>
 	</ul>
 
-	<ul class="commentli">
-		<% @user.comments.each do |c| %>
-			<li>
+	<ul>
+		<% @user.comments.each do |u| %>
+			<li class="commentli">
 				<% if current_user %>
-					<%= c.user.name + ':' + c.comment %>
+					<%= u.user.name + ':' + u.comment %>
 				<% end %>
 			</li>
 		<% end %>
