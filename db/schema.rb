@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923025858) do
+ActiveRecord::Schema.define(version: 20140924014523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140923025858) do
   create_table "foodiepictures", force: true do |t|
     t.string   "description"
     t.integer  "user_id"
-    t.integer  "comments_id"
+    t.integer  "comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
@@ -39,22 +39,22 @@ ActiveRecord::Schema.define(version: 20140923025858) do
     t.datetime "image_updated_at"
   end
 
-  add_index "foodiepictures", ["comments_id"], name: "index_foodiepictures_on_comments_id", using: :btree
+  add_index "foodiepictures", ["comment_id"], name: "index_foodiepictures_on_comment_id", using: :btree
   add_index "foodiepictures", ["user_id"], name: "index_foodiepictures_on_user_id", using: :btree
 
   create_table "sessions", force: true do |t|
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["users_id"], name: "index_sessions_on_users_id", using: :btree
+  add_index "sessions", ["user_id"], name: "index_sessions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "password_digest"
     t.integer  "foodiepictures_id"
-    t.integer  "comments_id"
+    t.integer  "comment_id"
     t.boolean  "is_active"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20140923025858) do
     t.string   "image_fingerprint"
   end
 
-  add_index "users", ["comments_id"], name: "index_users_on_comments_id", using: :btree
+  add_index "users", ["comment_id"], name: "index_users_on_comment_id", using: :btree
   add_index "users", ["foodiepictures_id"], name: "index_users_on_foodiepictures_id", using: :btree
 
 end

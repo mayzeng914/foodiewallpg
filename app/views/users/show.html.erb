@@ -25,10 +25,10 @@
 		<% end %>
 	</ul>
 
-	<div class="commentcontainer">
+	<div>
         <%= form_for @comment_post, {url: comment_path(userwall_id: @user.id)} do |i| %>
-        <%= i.text_field :comment, placeholder: "leave a comment..." %>
-        <%= i.submit "Post comment!" %>
+        <%= i.text_field :comment, placeholder: "leave a comment...", class: "btn-pink" %>
+        <%= i.submit "Post" %>
         <% end %>
     </div>
 

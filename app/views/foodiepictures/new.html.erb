@@ -4,26 +4,19 @@
   <form class="form-horizontal" role="form">
 	  <div class="form-group btn-pink">
 	    <div class="col-sm-2">
-		  <%= f.file_field :image, placeholder: "new food!", class: "form-control" %>
+		  <%= f.file_field :image, placeholder: "new food!", class: "form-control", class: "pic_upload btn-block" %>
         </div>
 	  </div>
 	  <br /><br />
 	  <div class="form-group btn-pink">
 	    <div class="col-sm-2">
-		  <%= f.text_field :description, placeholder: "description", class: "form-control" %>
+		  <%= f.text_field :description, placeholder: "description", class: "form-control comment_comment btn-block" %>
 	    </div>
 	  </div>
 	  <br /><br />
-		  <div class="form-group">
-		    <div class="col-sm-2">
+		  <div class="btn-group btn-block">
 			  <%= f.submit "Upload", class: "btn btn-pink" %>
-			</div>
-	      </div>
-	  <br /><br />
-		  <div class="form-group">
-		    <div class="col-sm-2">
 			  <%= link_to "Cancel Upload", foodiepictures_path, class: "btn btn-pink" %>
-			</div>
 	      </div>
 	</form>
 <% end %>
