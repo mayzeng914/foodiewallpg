@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root 'foodiepictures#index'
 
-  get "sessions/index"
-  get "sessions/show"
+  get "sessions" => "sessions#index"
+  get "session/show" => "sessions#show"
   get "sessions/create"
   get "sessions/destroy"
   # get "foodiewall/" => "foodiepictures#index"

@@ -1,13 +1,23 @@
 class SessionsController < ApplicationController
 
     def index
-
+      #@sessions = Session.all
+      #@sessions = Session.where(:user_id => current_user.id)
+      #@totalnum = @sessions.count
       
+      # sql statement 
+      sqlstring = 'SELECT sessions.user_id, users.name, count(*) as "logins" FROM sessions JOIN users on sessions.user_id = users.id 
+                   group by sessions.user_id, users.name ORDER BY count(*) DESC LIMIT 3'
+      @sessions = Session.find_by_sql(sqlstring)      
     end
 
     def show
       if current_user
-        # @session = Session.find(params[:id])
+        @session = Session.all
+
+        # where(user_id: [current_userid])
+        # binding.pry
+
       end
 
 
@@ -22,10 +32,8 @@ class SessionsController < ApplicationController
     			session[:user_id] = u.id.to_s
           session[:name] = u.name.to_s
           session[:image] = u.image
-          # binding.pry
           params[:user_id] = u.id
-          @session = Session.new(params.permit(:user_id, :created_at, :updated_at))
-
+          @session = Session.new(u.id)
           if @session.save
       			redirect_to foodiepictures_path
           end
