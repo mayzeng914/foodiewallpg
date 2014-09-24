@@ -32,10 +32,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 group :development, :test do
   gem 'rspec-rails', '~>3.0.0'
-end
-
-group :development do
   gem "better_errors"
+  gem "binding_of_caller"
+  gem "pry-rails"
 end
 
 # Use ActiveModel has_secure_password
