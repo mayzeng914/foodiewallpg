@@ -54,7 +54,7 @@ h1 {
 }
 
 #userpic {
-	width: 16px;
+	width: 20px;
 }
 
 .container{
@@ -63,10 +63,12 @@ h1 {
 
 .commentli {
 	padding: 8px;
-	width: 166px;
+	width: 207px;
+	color: grey;
 	background-color: white;
     border-radius: 8px;
     opacity: 0.9;
+    margin: 0.5%;
 }
 .image-preview-input {
     position: relative;

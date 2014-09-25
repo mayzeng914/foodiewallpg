@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     #@totalnum = @sessions.count
 
     # sql statement for querying the top 3 active users
-    sqlstring = 'SELECT sessions.user_id, users.name, count(*) as "logins" FROM sessions JOIN users on sessions.user_id = users.id 
+    most_login = 'SELECT sessions.user_id, users.name, count(*) as "logins" FROM sessions JOIN users on sessions.user_id = users.id 
                  group by sessions.user_id, users.name ORDER BY count(*) DESC LIMIT 3'
-    @sessions = Session.find_by_sql(sqlstring)      
+    @sessions = Session.find_by_sql(most_login)      
   end
 
   def create

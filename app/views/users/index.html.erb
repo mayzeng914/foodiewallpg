@@ -2,7 +2,7 @@
 <div class="user-rank">
 	<p>Top 3 active users:</p>
 	<% @sessions.each do |s| %>
-		<h5 class="rankli"><%= s.name %>: <%=s.logins %> times</h5>
+		<h5 class="rankli"><%= link_to s.name, user_path(s.user_id)  %>: <%=s.logins %> times</h5>
 		<br>
 	<% end %>
 </div>
