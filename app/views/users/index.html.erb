@@ -1,0 +1,8 @@
+
+<div class="user-rank">
+	<p>Top 3 active users:</p>
+	<% @sessions.each do |s| %>
+		<h5 class="rankli"><%= s.name %>: <%=s.logins %> times</h5>
+		<br>
+	<% end %>
+</div>

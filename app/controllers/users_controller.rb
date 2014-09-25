@@ -1,10 +1,16 @@
 class UsersController < ApplicationController
 	before_action :login, :comment_post
-  # def index
-  # 	@user = User.where(is_active: true)
-  # end
 
+  def index
+    #@sessions = Session.all
+    #@sessions = Session.where(:user_id => current_user.id)
+    #@totalnum = @sessions.count
 
+    # sql statement for querying the top 3 active users
+    sqlstring = 'SELECT sessions.user_id, users.name, count(*) as "logins" FROM sessions JOIN users on sessions.user_id = users.id 
+                 group by sessions.user_id, users.name ORDER BY count(*) DESC LIMIT 3'
+    @sessions = Session.find_by_sql(sqlstring)      
+  end
 
   def create
   	@user = User.new(params.require(:user).permit(:name, :password, :password_confirmation, :image))

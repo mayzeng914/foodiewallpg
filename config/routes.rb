@@ -2,13 +2,8 @@ Rails.application.routes.draw do
 
   root 'foodiepictures#index'
 
-  get "sessions" => "sessions#index"
-  get "session/show" => "sessions#show"
   get "sessions/create"
   get "sessions/destroy"
-  # get "foodiewall/" => "foodiepictures#index"
-
-  # get "foodiewall/new" => "foodiepictures#new"
 
   resources :foodiepictures
   resources :users
@@ -16,6 +11,7 @@ Rails.application.routes.draw do
   resource :comment, only: [:create]
 
   get "users/error" => "users#error"
+  get "users" => "users#index"
 
   get "user/name"
   get "user/password_digest"
