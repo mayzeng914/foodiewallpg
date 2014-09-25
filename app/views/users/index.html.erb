@@ -1,8 +1,26 @@
+<ul>
 
-<div class="user-rank">
-	<p>Top 3 active users:</p>
-	<% @sessions.each do |s| %>
-		<h5 class="rankli"><%= link_to s.name, user_path(s.user_id)  %>: <%=s.logins %> times</h5>
-		<br>
-	<% end %>
-</div>
+	<li class="user-rank">
+		<p>Who logs in often?</p>
+		<% @most_login.each do |m| %>
+			<h5 class="rankli"><%= link_to m.name, user_path(m.user_id)  %>: <%=m.logins %> times</h5>
+			<br>
+		<% end %>
+	</li>
+
+	<li class="user-rank">
+		<p>Who talks a lot?</p>
+		<% @most_com.each do |c| %>
+			<h5 class="rankli"><%= link_to c.name, user_path(c.user_id)  %> has <%=c.mostcom %> comments</h5>
+			<br>
+		<% end %>
+	</li>
+
+	<li class="user-rank">
+		<p>Who is the fattest?</p>
+		<% @fattest.each do |f| %>
+			<h5 class="rankli"><%= link_to f.name, user_path(f.user_id)  %> uploaded <%=f.fattest %>pictures </h5>
+			<br>
+		<% end %>
+	</li>
+</ul>

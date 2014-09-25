@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-  end
-
   def create
   	u = User.where(name: params[:user][:name]).first
   	if u && u.authenticate(params[:user][:password])
@@ -12,7 +10,7 @@ class SessionsController < ApplicationController
         session[:name] = u.name.to_s
         session[:image] = u.image
         params[:user_id] = u.id
-        @session = Session.new(u.id)
+        @session = Session.new(params.permit(:user_id))
         if @session.save
     			redirect_to foodiepictures_path
         end

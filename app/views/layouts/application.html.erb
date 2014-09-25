@@ -41,9 +41,11 @@
 				class: "btn btn-lg btn-pink btn-block" %>
 
 			<div class="btn-group btn btn-lg btn-pink btn-block">
-			<%= link_to "Homepage", foodiepictures_path %>
-			<%= link_to "Top!", users_path %>
-			</div>
+			<%= link_to "HomePage", foodiepictures_path %>
+			<% if current_user %>
+				<%= link_to "TopPage", users_path %>
+			<% end %>
+				</div>
 			<%= link_to "Upload new food!", new_foodiepicture_path, class: "btn btn-lg btn-pink btn-block" %>
 
 

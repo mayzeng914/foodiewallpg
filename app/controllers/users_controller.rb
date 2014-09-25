@@ -8,8 +8,18 @@ class UsersController < ApplicationController
 
     # sql statement for querying the top 3 active users
     most_login = 'SELECT sessions.user_id, users.name, count(*) as "logins" FROM sessions JOIN users on sessions.user_id = users.id 
-                 group by sessions.user_id, users.name ORDER BY count(*) DESC LIMIT 3'
-    @sessions = Session.find_by_sql(most_login)      
+                  group by sessions.user_id, users.name ORDER BY count(*) DESC LIMIT 3'
+    @most_login = Session.find_by_sql(most_login)  
+
+    # sql statement for querying the top 3 commenters
+    most_com = 'SELECT comments.user_id, users.name, count(*) as "mostcom" FROM comments JOIN users on comments.user_id = users.id 
+                group by comments.user_id, users.name ORDER BY count(*) DESC LIMIT 3'
+    @most_com = Session.find_by_sql(most_com)
+
+    fattest = 'SELECT foodiepictures.user_id, users.name, count(*) as "fattest" FROM foodiepictures JOIN users on foodiepictures.user_id = users.id 
+               group by foodiepictures.user_id, users.name ORDER BY count(*) DESC LIMIT 3'
+    @fattest = Session.find_by_sql(fattest)
+
   end
 
   def create
