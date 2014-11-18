@@ -19,7 +19,7 @@
 	<li class="user-rank">
 		<p>Who is the fattest?</p>
 		<% @fattest.each do |f| %>
-			<h5 class="rankli"><%= link_to f.name, user_path(f.user_id)  %> uploaded <%=f.fattest %>pictures </h5>
+			<h5 class="rankli"><%= link_to f.name, user_path(f.user_id)  %> uploaded <%=f.fattest %> pictures </h5>
 			<br>
 		<% end %>
 	</li>

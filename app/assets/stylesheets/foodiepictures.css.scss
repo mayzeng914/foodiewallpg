@@ -30,6 +30,7 @@ ul {
 	color: pink;
 	margin-top: 12%;
 	margin-left: 13%;
+	float: left;
 }
 
 h1 {
@@ -65,7 +66,7 @@ h1 {
 	padding: 8px;
 	width: 207px;
 	color: grey;
-	background-color: white;
+	background-color: lightblue;
     border-radius: 8px;
     opacity: 0.9;
     margin: 0.5%;
@@ -103,17 +104,21 @@ h1 {
 #comment_comment {
 	background-color: white;
 	border-radius: 9px;
-	border-color: lightpink;
+	border-color: lightblue;
 	padding: 6px;
 	margin-left: 8%;
 }
 
 input {
 	border-radius: 5px;
-	background-color: pink;
-	border-color: lightpink;
+	background-color: lightblue;
+	border-color: lightblue;
 	color: white;
 	padding: 5px;
+}
+
+input#comment_comment.btn-pink {
+	margin-left: 10%;
 }
 
 .pic_upload {
@@ -122,5 +127,16 @@ input {
 	border-radius: 6px;
 	color: white;
 	padding: 7px;
+	width: 180px;
+}
+
+input#foodiepicture_image.pic_upload.btn-block {
+	width:180px;
+	margin-left: -48%;
+}
+
+input#foodiepicture_description.form-control.comment_comment.btn-block {
+	width: 180px;
+	margin-left: -45%;
 }
 
